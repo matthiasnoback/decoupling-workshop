@@ -2,4 +2,7 @@ parameters:
     level: max
     paths:
         - src
+        - public
     tmpDir: %currentWorkingDirectory%/cache/phpstan
+    scanDirectories:
+        - vendor2/cat-api-sdk
