@@ -1,19 +1,34 @@
 version: "3"
 services:
-  php:
-    image: php:8.0-cli-alpine
-    working_dir: /opt
-    volumes:
-      - ./:/opt
-    entrypoint: php
-    user: ${HOST_UID}:${HOST_GID}
-    env_file:
-      - .env
+    php:
+        image: matthiasnoback/decoupling-workshop-php
+        build: docker/php/
+        volumes:
+            - ./:/app
+        entrypoint: php
+        user: ${HOST_UID}:${HOST_GID}
+        env_file:
+            - .env
+        init: true
 
-  composer:
-    image: composer:latest
-    volumes:
-      - ./:/app
-    user: ${HOST_UID}:${HOST_GID}
-    env_file:
-      - .env
+    web:
+        image: matthiasnoback/decoupling-workshop-web
+        build: docker/web/
+        volumes:
+            - ./:/app
+        ports:
+            # Development server
+            - "8080:8080"
+        expose:
+            - 8080
+        user: ${HOST_UID}:${HOST_GID}
+        env_file:
+            - .env
+
+    composer:
+        image: composer:latest
+        volumes:
+            - ./:/app
+        user: ${HOST_UID}:${HOST_GID}
+        env_file:
+            - .env
