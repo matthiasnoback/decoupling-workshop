@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# PHPStan
+docker-compose run --rm php vendor/bin/phpstan analyze
