@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace CatApiSdk;
 
+use Assert\Assertion;
+
 final class CatApi
 {
     public static function getRandomCatPicture(): CatPicture
@@ -42,8 +44,10 @@ final class CatApi
                 echo "Invalid JSON response";
                 exit;
             }
+            Assertion::keyExists($data, 0);
+            Assertion::isArray($data[0]);
 
-            return new CatPicture($data);
+            return new CatPicture($data[0]);
         }
     }
 }

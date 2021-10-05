@@ -12,6 +12,6 @@ use CatApiSdk\CatPicture;
 </head>
 <body>
 <?php
-?><img src="<?php echo htmlspecialchars($catPicture['url'], ENT_QUOTES); ?>" alt="Nice cat" style="width: 400px; height: auto;"/>
+?><img src="<?php echo htmlspecialchars($catPicture->url(), ENT_QUOTES); ?>" alt="Nice cat" style="width: 400px; height: auto;"/>
 </body>
 </html>

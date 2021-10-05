@@ -11,6 +11,9 @@ docker-compose pull
 echo "Installing Composer dependencies"
 docker-compose run --rm composer install --ignore-platform-reqs --prefer-dist
 
+echo "Starting services"
+docker-compose up -d
+
 echo ""
 echo "Now open http://localhost:8080/ in your browser"
 echo ""

@@ -22,11 +22,11 @@ final class CatPicture
         $this->id = $data['id'];
 
         Assertion::keyExists($data, 'width');
-        Assertion::integer($data, 'width');
+        Assertion::integer($data['width']);
         $this->width = $data['width'];
 
         Assertion::keyExists($data, 'height');
-        Assertion::integer($data, 'height');
+        Assertion::integer($data['height']);
         $this->height = $data['height'];
 
         Assertion::keyExists($data, 'url');
