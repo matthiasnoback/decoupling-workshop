@@ -5,9 +5,9 @@ namespace CatApiSdk;
 
 use Assert\Assertion;
 
-final class CatApi
+final class TheCatApi
 {
-    public static function getRandomCatPicture(): CatPicture
+    public static function imagesSearch(): ImagesSearchResponse
     {
         $curl = curl_init();
 
@@ -47,7 +47,7 @@ final class CatApi
             Assertion::keyExists($data, 0);
             Assertion::isArray($data[0]);
 
-            return new CatPicture($data[0]);
+            return new ImagesSearchResponse($data[0]);
         }
     }
 }

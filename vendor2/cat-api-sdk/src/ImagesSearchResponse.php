@@ -5,12 +5,17 @@ namespace CatApiSdk;
 
 use Assert\Assertion;
 
-final class CatPicture
+final class ImagesSearchResponse
 {
     private string $id;
     private int $width;
     private int $height;
     private string $url;
+
+    /**
+     * @var array<Breed>
+     */
+    private array $breeds;
 
     /**
      * @param array<mixed> $data
@@ -32,6 +37,11 @@ final class CatPicture
         Assertion::keyExists($data, 'url');
         Assertion::string($data['url']);
         $this->url = $data['url'];
+
+        Assertion::keyExists($data, 'breeds');
+        Assertion::isArray($data['breeds']);
+
+        $this->breeds = array_map(fn (array $breed) => new Breed($breed), $data['breeds']);
     }
 
     public function id(): string
@@ -52,5 +62,13 @@ final class CatPicture
     public function url(): string
     {
         return $this->url;
+    }
+
+    /**
+     * @return array<Breed>
+     */
+    public function breeds(): array
+    {
+        return $this->breeds;
     }
 }

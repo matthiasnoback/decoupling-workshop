@@ -8,7 +8,7 @@ final class Render
     /**
      * @param array<string,mixed> $context
      */
-    public static function view(string $template, array $context): string
+    public static function view(string $template, array $context = []): string
     {
         ob_start();
 
