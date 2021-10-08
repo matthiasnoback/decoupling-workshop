@@ -2,7 +2,8 @@
     "require": {
         "php": "^8.0",
         "beberlei/assert": "^3.3",
-        "ext-curl": "*"
+        "ext-curl": "*",
+        "symfony/finder": "^5.3"
     },
     "require-dev": {
         "phpstan/phpstan": "^0.12.99",

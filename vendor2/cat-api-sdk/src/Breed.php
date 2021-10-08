@@ -5,7 +5,7 @@ namespace CatApiSdk;
 
 use Assert\Assertion;
 
-final class Breed
+class Breed
 {
     private string $name;
 

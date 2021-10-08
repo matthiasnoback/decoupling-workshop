@@ -5,7 +5,7 @@ namespace CatApiSdk;
 
 use Assert\Assertion;
 
-final class TheCatApi
+class TheCatApi
 {
     public static function imagesSearch(): ImagesSearchResponse
     {

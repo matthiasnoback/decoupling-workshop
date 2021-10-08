@@ -5,7 +5,7 @@ namespace CatApiSdk;
 
 use Assert\Assertion;
 
-final class ImagesSearchResponse
+class ImagesSearchResponse
 {
     private string $id;
     private int $width;
