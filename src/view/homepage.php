@@ -2,7 +2,6 @@
 declare(strict_types=1);
 
 use CatApiSdk\TheCatApi;
-use Symfony\Component\Finder\Finder;
 
 ?>
 <html lang="en">
