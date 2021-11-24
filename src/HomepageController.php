@@ -3,11 +3,11 @@ declare(strict_types=1);
 
 namespace CatLovers;
 
-use CatLovers\Service\AmazingCatService;
+use CatLovers\Contract\CatImageServiceInterface;
 
 final class HomepageController
 {
-    public function __construct(private AmazingCatService $catImageService)
+    public function __construct(private CatImageServiceInterface $catImageService)
     {
     }
 
