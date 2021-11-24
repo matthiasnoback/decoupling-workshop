@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-use CatApiSdk\TheCatApi;
+/** @var \CatApiSdk\ImagesSearchResponse $catImage */
 
 ?>
 <html lang="en">
@@ -9,6 +9,7 @@ use CatApiSdk\TheCatApi;
     <title>CatLovers</title>
 </head>
 <body>
-<img src="<?php echo htmlspecialchars(TheCatApi::imagesSearch()->url(), ENT_QUOTES); ?>" alt="Nice cat" style="width: 400px; height: auto;"/>
+<img src="<?php
+echo htmlspecialchars($catImage->url(), ENT_QUOTES); ?>" alt="Nice cat" style="width: 400px; height: auto;"/>
 </body>
 </html>
