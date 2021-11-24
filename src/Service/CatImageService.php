@@ -3,15 +3,16 @@ declare(strict_types=1);
 
 namespace CatLovers\Service;
 
-use CatApiSdk\ImagesSearchResponse;
 use CatApiSdk\TheCatApi;
+use CatLovers\Contract\CatImageServiceInterface;
+use CatLovers\Dto\CatImage;
 
-final class CatImageService
+final class CatImageService implements CatImageServiceInterface
 {
-    public function getRandomImage(): ImagesSearchResponse
+    public function getRandomImage(): CatImage
     {
         if (rand(0, 9) >= 5) {
-            return TheCatApi::imagesSearch();
+            return new CatImage(TheCatApi::imagesSearch()->url());
         }
 
         $images = [
@@ -21,14 +22,6 @@ final class CatImageService
         $key = array_rand($images);
         $url = $images[$key];
 
-        return new ImagesSearchResponse(
-            [
-                'id' => '',
-                'width' => 0,
-                'height' => 0,
-                'url' => $url,
-                'breeds' => []
-            ]
-        );
+        return new CatImage($url);
     }
 }

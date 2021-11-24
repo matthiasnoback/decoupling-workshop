@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-/** @var \CatApiSdk\ImagesSearchResponse $catImage */
+/** @var \CatLovers\Dto\CatImage $catImage */
 
 ?>
 <html lang="en">
