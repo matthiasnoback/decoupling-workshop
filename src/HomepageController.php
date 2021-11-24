@@ -3,16 +3,18 @@ declare(strict_types=1);
 
 namespace CatLovers;
 
-use CatApiSdk\TheCatApi;
+use CatLovers\Service\CatImageService;
 
 final class HomepageController
 {
+    public function __construct(private CatImageService $catImageService)
+    {
+    }
+
     public function homepageAction(): string
     {
-        $catImage = TheCatApi::imagesSearch();
-
         return Render::view(__DIR__ . '/view/homepage.php', [
-            'catImage' => $catImage
+            'catImage' => $this->catImageService->getRandomImage()
         ]);
     }
 }
