@@ -15,13 +15,6 @@ final class CatImageService implements CatImageServiceInterface
             return new CatImage(TheCatApi::imagesSearch()->url());
         }
 
-        $images = [
-            '/images/cat1.jpg',
-            '/images/cat2.png'
-        ];
-        $key = array_rand($images);
-        $url = $images[$key];
-
-        return new CatImage($url);
+        return (new LocalCatImageService())->getRandomImage();
     }
 }
